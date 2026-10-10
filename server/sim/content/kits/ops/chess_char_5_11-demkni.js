@@ -50,7 +50,7 @@ export default {
           // It uses her attack interval even without an enemy. If the patient recovers before the attack,
           // the engine withdraws the cast and refunds its charge.
           kind: instantKind(chess, def),
-          trigger: { rule: 'DEFAULT', grid, allies: true, hpAtMost: HALF_HP },
+          trigger: { rule: 'SKILL_RANGE', grid, allies: true, hpAtMost: HALF_HP },
           targeting: { rangeGrid: grid },
           attack: { dmgType: 'heal', heal: { mode: 'single', hpAtMost: HALF_HP }, healScale: num(bb.heal_scale, 1), projectile: 'none' },
           onHit({ battle, target }) { if (target) battle.fx('healAoe', { x: target.x, y: target.y, id: target.id, r: 0.5 }); },
